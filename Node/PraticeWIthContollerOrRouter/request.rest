@@ -1,0 +1,10 @@
+
+http://localhost:8082
+
+####
+http://localhost:8082/currency
+
+###
+http://localhost:8082/currency/search?min_size=1
+###
+http://localhost:8082/currency/search/usd
