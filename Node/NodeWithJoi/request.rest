@@ -1,0 +1,28 @@
+
+http://localhost:8082
+###
+http://localhost:8082/currency
+
+###
+http://localhost:8082/currency/all
+
+###
+http://localhost:8082/currency/search?min_size=1
+
+
+###
+GET http://localhost:8082/users
+Authorization: LetMeIn
+
+###
+http://localhost:8082/users/search?gender=male&age=49
+
+###
+http://localhost:8082/users/search?gender=male
+
+###
+http://localhost:8082/users/search?age=49
+
+###
+http://localhost:8082/users/search
+
