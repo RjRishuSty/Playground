@@ -1,0 +1,101 @@
+TODO:- First of all install node envorment = npm init -y
+TODO:- Then install (nodemon) => npm i nodemon -D
+TODO:- Then in package.json there is script section there add "start":"nodemon index.js"
+TODO:- Then create index.js file
+TODO:- Then install express = npm i express
+TODO:- Then  create a folder is Controller. There put all the router Controller function and end of file module.exports ;
+TODO:- Then Create a folder is Router . There put all the route and export the Controller and end of the file module.exports = router;
+TODO:- Controller Validation with (joi). 
+TODO:- Then install joi libery = npm i joi
+TODO:- Then Create a Validation Folder there put all types of Validation ex userValidation (Gender,age) and end of the file module.exports = Validation;
+TODO:- Then for request Authorization
+TODO:- Then install dotenv = npm i dotenv -D 
+TODO:- Then create a file. Its name is .env and there add text and key is also uppercase ex- PASSWORD= LetMeIn
+TODO:- Then access the file useing (process.env.password);
+
+TODO:- Inportant Note with the joi libery there is repated code. so SOlve the error interduce MiddleWare...............
+
+TODO:------------------------ MIDDLE WARE -------------------------------------------
+
+TODO: Then create a folder. Its name is MiddleWare;
+TODO:- Then create a file. Its name is any things you put ex- authori.js
+TODO:- Then import in Global in index.js there you import means Global;
+
+
+TODO: ----------------------------------------Mongo DB ----------------------------------------------------
+
+TODO:- First command is => (mongosh) to open mongo shell
+TODO:- Then there is connecting to :-   mongodb://127.0.0.1:27017
+TODO:- Default database is selected :- test
+TODO:- Show all database :- show dbs
+TODO:- current database want to delete then:- db.dropDatabase()
+TODO:- You want to create your database name and switch the database:- (use databaseName) means in database has no any data jub tak database create nahi hua ha.
+TODO:- You want to create a collection and insert some data:- db.collectionName.insertOne({name:'Rishu', age:23})
+TODO:- You want to add more data in your collection :- db.collectionName.inserMany([{name:'Nishu',age:12}, {name:'pooja',age:23}])
+TODO:- If you want to show collection in  current database :- show collections
+TODO:- If you want to show all collection data :-db.users.find()  // =>(find is empty then return all document)
+TODO:- If you want to filter some age i want to filter age = 10 :- db.users.find({age:25});
+
+
+
+TODO: -----------------------------------------Mongoose Library -----------------------------------------
+
+TODO:- Install mongoose :- npm i mongoose
+TODO:- Mongoose connect is a async function and its return Promise. SO please use try{}catch{}
+TODO:- In function (mongoose.connect(DB_URI))
+TODO:- DB_URI Link put in (.env) file
+TODO:- Then import in index.js using :- require('dotenv').config();
+TODO:- and the end of file please module.exports = connectDB;
+TODO:- and call the connectDB() function in index.js file 
+
+
+TODO:-------------------------------------Models------------------------------------------------------------------------
+
+TODO:- first create a models folder 
+TODO:- Then create a mongoose model schema (means how to store all fields that is called mongoose schema)
+TODO:- First of all import mongoose :- require('mongoose')
+TODO:- Create a variabel =  new mongoose.Schema({}) it is function 
+TODO:- and then add required fields object 
+TODO:- Then Create a collection model variabel and add collectionName and variabelSchema
+
+EXAMPLE:--------------------------------
+
+const mongoose = require('mongoose');
+
+const blogSchema = new mongoose.Schema({
+    title: String, 
+    author:[String], // TODO: array of strings
+    content:String,
+    publishedAt:Date
+})
+
+const blogModel = mongoose.model("Blog", blogSchema);
+
+module.exports = blogModel;
+
+
+
+TODO:- Then in controller import blogSchema file then create controller function;
+TODO:- THat why we add in inexd.js file----------------------------
+
+TODO:----------------------Note---------------------------
+TODO:- IF you want to post call so in index.js file add:- app.use(express.json());
+
+
+TODO:- IF post call then :-( req.body) if you console the line the value is (undefine)
+TODO:- in post call link and header -=> 
+POST http://localhost:8082/blog/new
+Content-Type: application/json
+{
+    "title":'Blog on Manali',
+    "author":"Rishu Raj",
+    "content":" How to enjoy in manali full videos",
+    "publishedAt":null,
+}
+
+
+TODO: If data in json then show the data other wise empty object{};
+
+TODO: Then controller to create a blog there is a function :- create(req.body) return (Promise)
+
+ 

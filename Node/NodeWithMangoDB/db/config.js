@@ -1,11 +1,14 @@
+// TODO: (1) import mongoose
 const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.DB_URI);
-    console.log('DB is Connected')
+    // mongoose.connect('mongodb://127.0.0.1:27017')  //TODO: you can also connect like this
+
+    await mongoose.connect(process.env.DB_URI); // TODO: This is better way to connect
+    console.log("DB Connected");
   } catch (error) {
-    console.log(`Failed to connect DB ${error}`);
+    console.log("DB Failed to Connect.", error);
   }
 };
 
