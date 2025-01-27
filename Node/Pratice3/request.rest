@@ -1,0 +1,12 @@
+
+GET http://localhost:8082/users
+
+####
+POST http://localhost:8082/users/new 
+Content-Type: application/json
+
+{
+    "fullname":"Rishu raj",
+    "username":"rishuk59",
+    "password":"rishu"
+}

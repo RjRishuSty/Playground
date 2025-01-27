@@ -5,6 +5,9 @@ const blogSchema = new mongoose.Schema({
   author: {type: [String], default:[] },   // TODO: array of strings
   content: {type: String, default:""},
   publishedAt: {type: Date, default:null},
+},{
+  timestamps:true,  // add the time 
+  versionKey:false,  // in data has __v . so this keyword stop to adding
 });
 const blogModel = mongoose.model("Blog", blogSchema);
 

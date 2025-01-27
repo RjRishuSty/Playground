@@ -99,3 +99,40 @@ TODO: If data in json then show the data other wise empty object{};
 TODO: Then controller to create a blog there is a function :- create(req.body) return (Promise)
 
  
+TODO:----------------------------------- Read the data (get) -----------------------------------------
+
+TODO: 
+TODO: import the dataModal file;
+TODO: first of all target the model => blog.find();
+TODO: dataModel.find() if find() is empty and { } then return all data;
+
+
+TODO:----------------------------------- Read the data BY ID (get) ---------------
+
+TODO: 
+TODO: import the dataModal file;
+TODO: first of all target the model => blog.findById(id);
+TODO: return Promise;
+
+
+TODO:----------------------------------- Read the data BY ID and DELETE (delete) ---------------
+
+TODO: In Route file set route.delete('/:id', functionName)
+TODO: import the dataModal file;
+TODO: first of all target the model => blog.findByIdAndDelete(id);
+TODO: return Promise;
+
+
+TODO:----------------------------------- Patch request (patch -> update)---------------
+
+TODO: In Route file set route.patch('/:id', functionName)
+TODO: import the dataModal file;
+TODO: first of all target the model => blog.findByIdAndUpdate(id, req.body, {new:true});
+TODO: in update => (id => document ka id)
+TODO: in update => (res.body => which document want to update)
+TODO: in update => ({new:true} => means when update the data after just show (new:true = returnDocument:"after"))
+TODO: return Promise;
+
+
+TODO: ----------------------------------- Error Handling create MiddleWare -----------------------
+

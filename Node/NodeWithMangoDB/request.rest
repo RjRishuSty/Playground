@@ -1,9 +1,27 @@
 
 GET http://localhost:8082/blog
+
+###
+
+GET http://localhost:8082/blog/678f726c562f450d8680871a
+###
+
+DELETE  http://localhost:8082/blog/678f6f5ec4437f25a7e4cc97
+
 ###
 POST http://localhost:8082/blog/new
 Content-Type: application/json
 
 {
-    "title":["Rishu Raj","Munni Rani"]
+    "title":"Blog With carray!"
+}
+
+#####
+PATCH  http://localhost:8082/blog/678f726c562f450d8680871a
+Content-Type: application/json
+
+{
+    "title":"Blog with Rishu Raj",
+    "author":["Munni Devi"],
+    "content":"Welcome to our world"
 }
