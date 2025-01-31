@@ -4,7 +4,8 @@ import Card from './Components/Card/Card'
 const App = () => {
   return (
     <div className='App'>
-      <Card componentType="stopwatch"/>
+      {/* <Card componentType="stopwatch"/> */}
+      <Card componentType={"pagination"}/>
     </div>
   )
 }
