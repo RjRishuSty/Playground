@@ -1,0 +1,16 @@
+GET http://localhost:3000/user
+
+###
+GET http://localhost:3000/user/search?gender=male&age=49
+###
+GET http://localhost:3000/user/search?gender=male
+###
+GET http://localhost:3000/user/search?age=49
+###
+GET http://localhost:3000/user/search
+
+####
+GET http://localhost:3000/blog
+
+###
+POST  http://localhost:3000/blog/new

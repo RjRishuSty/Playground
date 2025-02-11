@@ -2,39 +2,35 @@ import React, { useEffect, useState } from "react";
 import Styles from "./Stopwatch.module.css";
 
 const Stopwatch = () => {
+  const [timeData, setTimeData] = useState(0);
   const [flag, setFlag] = useState(false);
-  const [time, setTime] = useState(0);
+
   const formateTime = (second) => {
-    let minute = Math.floor(second / 60);
-    let remiMinute = Math.floor(second % 60);
-    return `${minute}:${remiMinute < 10 ? "0" : ""}${remiMinute}`;
+    const minute = Math.floor(second / 60);
+    const remSecond = second % 60;
+    return `${minute}:${remSecond < 10 ? "0" : ""}${remSecond}`;
   };
-  const handleStart = () => {
-    setFlag(!flag);
-  };
-  const handleReset = () => {
+  const handlerStart = () => { setFlag(!flag) };
+  const handlerReset = () => {
     setFlag(false);
-    setTime(0);
+    setTimeData(0);
   };
   useEffect(() => {
-    let id;
-    if (flag) {
-      id = setInterval(() => {
-        setTime((prev) => prev + 1);
-      }, 1000);
-    } else {
-      clearInterval(id);
-    }
-    return () => clearInterval(id);
+    let interId;
+    flag ? (interId = setInterval(() => {
+          setTimeData((prev) => prev + 1);
+        }, 1000))
+      : clearInterval(interId);
+    return () => clearInterval(interId);
   }, [flag]);
   return (
     <>
-      <p className={Styles.text}>{formateTime(time)}</p>
+      <p className={Styles.text}>{formateTime(timeData)}</p>
       <div className={Styles.buttonGroup}>
-        <button className={Styles.btn} onClick={handleStart}>
+        <button onClick={handlerStart} className={Styles.btn}>
           {flag ? "Stop" : "Start"}
         </button>
-        <button className={Styles.btn} onClick={handleReset}>
+        <button onClick={handlerReset} className={Styles.btn}>
           Reset
         </button>
       </div>
