@@ -1,15 +1,16 @@
 import React from 'react'
-import Card from './Components/Card/Card'
+import Stopwatch from './Components/Stopwatch/Stopwatch'
+import Pagination from './Components/Pagination/Pagination'
+import Product from './Components/ProductList/ProductList'
 
 const App = () => {
   return (
-    <div className='App'>
-      {/* <Card componentType="stopwatch"/> */}
-      {/* <Card componentType={"pagination"}/> */}
-      {/* <Card componentType={"counter"}/> */}
-      <Card componentType={"login"}/> 
-    </div>
+    <>
+      {/* <Stopwatch/> */}
+      {/* <Pagination/> */}
+      <Product/>
+    </>
   )
 }
 
-export default App;
+export default App

@@ -1,45 +1,46 @@
 import React, { useEffect, useState } from "react";
-import Styles from "./Pagination.module.css";
-import axios from "axios";
 const Pagination = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
+        const response = await fetch(
           `https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json`
         );
-        setData(response.data);
+        const data = await response.json();
+        setData(data);
       } catch (error) {
         console.log(error);
       }
     };
-
     fetchData();
   }, []);
 
-  const parPage = 5;
-  const firstRow = currentPage * parPage;
-  const lastRow = firstRow - parPage;
-  const sliceData = data.slice(lastRow, firstRow);
-  const page = Math.ceil(data.length / parPage);
+  const parPageView = 5;
+  const lastIndex = currentPage * parPageView;
+  const firstIndex = lastIndex - parPageView;
+  const filterData = data.slice(firstIndex,lastIndex);
+  const page = Math.ceil(data.length / parPageView);
 
-  const handlerNext = () => {
-    if (currentPage < page) {
-      setCurrentPage(currentPage + 1);
+  const handleNext = ()=>{
+    if(currentPage <page){
+        setCurrentPage(currentPage+1);
     }
-  };
-  const handlerPrev = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+  }
+
+  const handlePrev = ()=>{
+    if(currentPage > 1){
+        setCurrentPage(currentPage-1);
     }
-  };
+  }
 
   return (
     <>
-      <table className={Styles.table}>
-        <thead className={Styles.thead}>
+      <h1>Pagination</h1>
+      <table>
+        <thead>
           <tr>
             <th>SI</th>
             <th>Name</th>
@@ -48,9 +49,9 @@ const Pagination = () => {
           </tr>
         </thead>
         <tbody>
-          {sliceData.map((item) => {
+          {filterData.map((item) => {
             return (
-              <tr className={Styles.tbodyTr}>
+              <tr>
                 <td>{item.id}</td>
                 <td>{item.name}</td>
                 <td>{item.email}</td>
@@ -60,14 +61,8 @@ const Pagination = () => {
           })}
         </tbody>
       </table>
-      <div className="btn-control">
-        <button className={Styles.btn} onClick={handlerPrev}>
-          prev
-        </button>
-        <button className={Styles.btn} onClick={handlerNext}>
-          Next
-        </button>
-      </div>
+      <button onClick={handlePrev}>Prev</button>
+      <button onClick={handleNext}>Next</button>
     </>
   );
 };
